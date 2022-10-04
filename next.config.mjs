@@ -21,14 +21,6 @@ export default defineNextConfig({
     locales: ["en"],
     defaultLocale: "en",
   },
-  async rewrites() {
-    return [
-      {
-        source: '/:any*',
-        destination: '/',
-      },
-    ];
-  },
 });
 
 

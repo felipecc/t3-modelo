@@ -2,9 +2,11 @@ import '../styles/globals.css';
 import type { AppType } from "next/app";
 import { trpc } from "../utils/trpc";
 import App from "./components/App";
-import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { BrowserRouter, Routes, Route, RouterProvider } from "react-router-dom";
 import { useEffect, useState } from "react";
 import Lista from "./components/Lista";
+import { redirect } from 'next/dist/server/api-utils';
+
 
 
 let RENDER_COUNT = 0;
@@ -38,13 +40,14 @@ const MyApp: AppType = ({ Component, pageProps }) => {
       <BrowserRouter>
         <Routes>
           <Route path="/" element={<App />}>
+            <Route index element={<Lista label="Lista1" />} />
             <Route path="lista1" element={<Lista label="Lista1" />} />
             <Route path="lista2" element={<Lista label="Lista2" />} />
             <Route path="lista3" element={<Lista label="Lista3" />} />
           </Route>
         </Routes>
       </BrowserRouter>
-    </ClientSideRendering >
+    </ClientSideRendering>
   )
 
 };

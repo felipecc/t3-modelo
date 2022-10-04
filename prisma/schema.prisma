@@ -13,3 +13,9 @@ datasource db {
 model Example {
     id String @id @default(cuid())
 }
+
+model Pacientes {
+    id            String   @id @default(cuid())
+    nome          String
+    dt_nascimento DateTime
+}
